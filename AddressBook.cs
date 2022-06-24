@@ -56,6 +56,20 @@ namespace AddressInformation
                 Console.WriteLine("Email: {0}", Contact.Email);
                 Console.WriteLine("-------------------------------------");
             }
+            Console.WriteLine("total count of List ,it will start with zero: {0} ", persons.Count);       //for reference of user if want to delete then here total count will provided
+            Console.WriteLine("enter the first name whose details want to delete");
+            int i = Convert.ToInt32(Console.ReadLine());
+            persons.Remove(persons[i]);
+            foreach (var Contact in persons)
+            {
+                Console.WriteLine("Your name is :{0} ", Contact.FirstName + " " + Contact.LastName);
+                Console.WriteLine("Your City: {0}", Contact.City);
+                Console.WriteLine("Your State: {0}", Contact.State);
+                Console.WriteLine("Your Zip:{0}", Contact.Zip);
+                Console.WriteLine("Your PhoneNumber: {0}", Contact.PhoneNumber);
+                Console.WriteLine("Email: {0}", Contact.Email);
+                Console.WriteLine("-------------------------------------");
+            }
         }
     }
 }
