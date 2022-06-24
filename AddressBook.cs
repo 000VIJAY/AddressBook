@@ -9,8 +9,8 @@ namespace AddressInformation
 {
     public class PersonAddress
     {
-      
-            public List<Contact> persons = new List<Contact>();
+
+        public List<Contact> persons = new List<Contact>();
 
         public void Book(Contact con)
         {
@@ -19,6 +19,33 @@ namespace AddressInformation
             persons.Add(new Contact() { FirstName = "Nitish", LastName = "kumar", City = "Patna", State = "Bihar", Zip = 800005, PhoneNumber = 654321287, Email = "vijya87348@gmail.com", });
             persons.Add(new Contact() { FirstName = "Rahul ", LastName = "Yadav", City = "Delhi", State = "New Delhi", Zip = 534342, PhoneNumber = 43523254234, Email = "rahul@gmail.com" });
             persons.Add(new Contact() { FirstName = "Rohal ", LastName = "Goyal", City = "Delhi", State = "New Delhi", Zip = 534342, PhoneNumber = 76523254234, Email = "rohan@gmail.com" });
+        }
+        public void Show()
+        {
+            Console.WriteLine("Enter Firstname");
+            string? FirstName = Console.ReadLine();
+            Console.WriteLine("Enter Last Name");
+            string? LastName = Console.ReadLine();
+            Console.WriteLine("Enter City");
+            string? City = Console.ReadLine();
+            Console.WriteLine("Enter State");
+            string? State = Console.ReadLine();
+            Console.WriteLine("Enter zip Number");
+            int Zip = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Phone Number");
+            long PhoneNumber = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Enter your email");
+            string? Email = Console.ReadLine();
+            persons.Add(new Contact()
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                City = City,
+                State = State,
+                Zip = Zip,
+                PhoneNumber = PhoneNumber,
+                Email = Email,
+            });
             foreach (var Contact in persons)
             {
                 Console.WriteLine("Your name is :{0} ", Contact.FirstName + " " + Contact.LastName);
