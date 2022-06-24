@@ -1,1 +1,5 @@
-﻿Console.WriteLine("Welcome to Address Book Program in AddressBook");
+﻿using AddressInformation;
+Contact person = new Contact();
+
+PersonAddress GetPerson = new PersonAddress();
+GetPerson.Book(person);
