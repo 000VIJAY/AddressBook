@@ -12,7 +12,7 @@ namespace AddressInformation
 
         public List<Contact> persons = new List<Contact>();
 
-        public void Book(Contact con)
+        public void Book()
         {
 
             persons.Add(new Contact() { FirstName = "Vijay", LastName = "kumar", City = "Patna", State = "Bihar", Zip = 8000001, PhoneNumber = 87654321287, Email = "vijya87348@gmail.com", });
@@ -46,20 +46,81 @@ namespace AddressInformation
                 PhoneNumber = PhoneNumber,
                 Email = Email,
             });
-            foreach (var Contact in persons)
-            {
-                Console.WriteLine("Your name is :{0} ", Contact.FirstName + " " + Contact.LastName);
-                Console.WriteLine("Your City: {0}", Contact.City);
-                Console.WriteLine("Your State: {0}", Contact.State);
-                Console.WriteLine("Your Zip:{0}", Contact.Zip);
-                Console.WriteLine("Your PhoneNumber: {0}", Contact.PhoneNumber);
-                Console.WriteLine("Email: {0}", Contact.Email);
-                Console.WriteLine("-------------------------------------");
-            }
-            Console.WriteLine("total count of List ,it will start with zero: {0} ", persons.Count);       //for reference of user if want to delete then here total count will provided
-            Console.WriteLine("enter the first name whose details want to delete");
+          forDisplay();
+        }
+        public void Remove()
+        {
+            Console.WriteLine("total count of List ,it will start with zero: {0} ", persons.Count);   //for reference of user if want to delete then here total count will provide
+            Console.WriteLine("Enter index number which contact wants to delete");
             int i = Convert.ToInt32(Console.ReadLine());
             persons.Remove(persons[i]);
+            forDisplay();
+        }
+
+
+        public void EditContact()
+        {
+            //only edit the added contact
+            Console.WriteLine("To edit contact list enter First Name");
+            string name = Console.ReadLine().ToLower();
+
+            foreach (var Contacts in persons)
+            {
+                if (persons.Contains(Contacts))
+                {
+                    if (Contacts.FirstName.Equals(name))
+                    {
+                        Console.WriteLine("enter the information wants to edit");
+                        Console.WriteLine("For edit First Name enter - 0");
+                        Console.WriteLine("For edit Last Name enter - 1");
+                        Console.WriteLine("For edit City  enter - 2");
+                        Console.WriteLine("For edit State  enter - 3");
+                        Console.WriteLine("For edit Zip  enter - 4");
+                        Console.WriteLine("For edit Phone  enter - 5");
+                        Console.WriteLine("For edit Email  enter - 6");
+                        int edit = Convert.ToInt32(Console.ReadLine());
+                        switch (edit)
+                        {
+                            case 0:
+                                Console.WriteLine("Enter the First Name");
+                                Contacts.FirstName = Console.ReadLine();
+                                break;
+                            case 1:
+                                Console.WriteLine("Enter the Last Name");
+                                Contacts.LastName = Console.ReadLine();
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter city Name");
+                                Contacts.City = Console.ReadLine();
+                                break;
+                            case 3:
+                                Console.WriteLine("Enter State Name");
+                                Contacts.State = Console.ReadLine();
+                                break;
+                            case 4:
+                                Console.WriteLine("Enter Zip ");
+                                Contacts.Zip = Convert.ToDouble(Console.ReadLine());
+                                break;
+                            case 5:
+                                Console.WriteLine("Enter Phone Number");
+                                Contacts.PhoneNumber = Convert.ToDouble(Console.ReadLine());
+                                break;
+                            case 6:
+                                Console.WriteLine("Enter Email");
+                                Contacts.Email = Console.ReadLine();
+                                break;
+                            default:
+                                Console.WriteLine("Contact not exixt");
+                                break;
+                        }
+                    }
+
+                }
+            }
+            forDisplay();
+        }
+        public void forDisplay()
+        {
             foreach (var Contact in persons)
             {
                 Console.WriteLine("Your name is :{0} ", Contact.FirstName + " " + Contact.LastName);
@@ -71,5 +132,6 @@ namespace AddressInformation
                 Console.WriteLine("-------------------------------------");
             }
         }
+
     }
 }

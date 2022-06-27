@@ -1,6 +1,6 @@
 ﻿using AddressInformation;
-Contact person = new Contact();
-
 PersonAddress GetPerson = new PersonAddress();
-GetPerson.Book(person);
+GetPerson.Book();
 GetPerson.Show();
+GetPerson.Remove();
+GetPerson.EditContact();
